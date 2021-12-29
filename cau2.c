@@ -1,25 +1,37 @@
 #include <stdio.h>
-int tinh_giai_thua(int n,int i)
+int NotMain(int a[],int n)
 {
-    int mul=1;
-    if(i>n)
+    int max=a[i];
+    for(int i=1;i<n;i++)
     {
-        return mul;
+        if(max<a[i]){
+            max=a[i];
+        }
     }
-    else{
-        mul=mul*i;
-    }
-    return mul=mul*tinh_giai_thua(n,i+1);
+    return max;
 }
-int ham_goi_choi(int n)
+void output(int a[],int n)
 {
-    return tinh_giai_thua(n,1);
+    for(int i=0;i<n;i++)
+        {
+            printf("%d  ",a[i]);
+        }
+}
+void input(int a[],int* n)
+{
+     printf("nhap n:");
+    scanf("%d",n);
+    for(int i=0;i<*n;i++)
+    {
+        prinf("gia tri cua a[%d] la:",i);
+        scanf("%d",&a[i]);
+    }
 }
 int main()
 {
-    int n;
-    printf("nhap mot so:");
-    scanf("%d",&n);
-    int x=ham_goi_choi(n);
-    printf("\n%d! =%d",n,x);
+    int n,a[1000] ;
+   input(a,&n);
+   output(a,n);
+   pirnf("\n max=%d",NotMain(a,n))
+    
 }
